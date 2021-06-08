@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Store</title>
+</head>
+<body>
+    <div class="header">
+		<div>
+			<nav class="navbar navbar-expand-lg">
+				<ul class="navbar-nav">
+					<li class="nav"><a class="navbar-brand" href="{% url 'index' %}">Home</a></li>
+					{% if user.is_authenticated %}
+					<li class="nav"><a class="navbar-brand" href="{% url 'album_new' %}" >Add Album</a></li> 
+					<li class="nav"><a class="navbar-brand" href="{% url 'artist_new' %}" >Add Artist</a></li> 
+					<p>Hello {{user.first_name}}! <small><a href="{% url 'logout' %}">Log Out</a></small></p>
+					{% else %}
+					<li><a href="{% url 'login' %}">Log In</a></li>
+
+					{% endif %}
+				</div>
+			</ul>
+		</nav>
+	</div>
+</div>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
